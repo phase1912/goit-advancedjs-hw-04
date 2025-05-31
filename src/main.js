@@ -4,7 +4,7 @@ import 'izitoast/dist/css/iziToast.min.css';
 import { refresh } from './js/render-functions.js';
 
 document
-  .querySelector('.search-form')
+  .querySelector('.form')
   .addEventListener('submit', async function (event) {
     event.preventDefault();
     const query = document.querySelector('.search-input').value.trim();
