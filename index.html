@@ -2,24 +2,25 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/goit-advancedjs-hw-02/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/goit-advancedjs-hw-03/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vanilla App Template</title>
-    <link rel="stylesheet" crossorigin href="/goit-advancedjs-hw-02/assets/index-d5rVvCDn.css">
+    <script type="module" crossorigin src="/goit-advancedjs-hw-03/index.js"></script>
+    <link rel="modulepreload" crossorigin href="/goit-advancedjs-hw-03/assets/vendor-5ObWk2rO.js">
+    <link rel="stylesheet" crossorigin href="/goit-advancedjs-hw-03/assets/vendor-DumFYO8Z.css">
+    <link rel="stylesheet" crossorigin href="/goit-advancedjs-hw-03/assets/index-xMpx2Hly.css">
   </head>
   <body>
     <main>
-      <!-- Loads the specified .html file -->
+      <form class="search-form">
+        <input type="text" class="search-input" placeholder="Search images..." />
+        <button type="submit" class="search-button">Search</button>
+      </form>
 
-      <h1>Pages:</h1>
-      <ol class="pages-list">
-        <li class="page-list-item">
-          <a href="./1-timer.html">Timer</a>
-        </li>
-        <li class="page-list-item">
-          <a href="./2-snackbar.html">Snackbar</a>
-        </li>
-      </ol>
+      <ul class="gallery js-gallery"></ul>
+
+      <span id="loader" class="loader"></span>
+
     </main>
   </body>
 </html>
