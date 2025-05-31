@@ -9,17 +9,16 @@
   </head>
   <body>
     <main>
-      <!-- Loads the specified .html file -->
+      <form class="search-form">
+        <input type="text" class="search-input" placeholder="Search images..." />
+        <button type="submit" class="search-button">Search</button>
+      </form>
 
-      <h1>Pages:</h1>
-      <ol class="pages-list">
-        <li class="page-list-item">
-          <a href="./1-timer.html">Timer</a>
-        </li>
-        <li class="page-list-item">
-          <a href="./2-snackbar.html">Snackbar</a>
-        </li>
-      </ol>
+      <ul class="gallery js-gallery"></ul>
+
+      <span id="loader" class="loader"></span>
+
+      <script type="module" src="./main.js"></script>
     </main>
   </body>
 </html>
