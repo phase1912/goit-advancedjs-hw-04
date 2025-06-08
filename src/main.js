@@ -5,6 +5,7 @@ import { refresh } from './js/render-functions.js';
 
 let pageNumber = 1;
 let savedQuery = '';
+const perPage = 15;
 
 document
   .querySelector('.form')
@@ -27,11 +28,11 @@ document
   });
 
 async function handleEvents(isAppend = false) {
+  const searchInput = document.querySelector('.search-input');
   const query = document.querySelector('.search-input').value.trim();
   const loader = document.querySelector('.loader');
   const loadMoreBtn = document.querySelector('.load-more-btn');
 
-  document.querySelector('.search-input').value = '';
   console.log('Search submitted for:', query);
 
   const isQueryValid = isAppend ? savedQuery !== '' : query !== '';
@@ -81,7 +82,21 @@ async function handleEvents(isAppend = false) {
       refresh(gallery, data, !isAppend);
 
       gallery.style.display = 'flex';
-      loadMoreBtn.classList.add('active');
+
+      if (!isAppend) {
+        searchInput.value = '';
+      }
+
+      if (data.totalHits > perPage) {
+        loadMoreBtn.classList.add('active');
+      }
+
+      // const currentItemCount = pageNumber * perPage; // this fix I like more, but regarding requirements load button need to be shown after last fetch with contend
+      // if (currentItemCount < data.totalHits) {
+      //   loadMoreBtn.classList.add('active');
+      // } else {
+      //   loadMoreBtn.classList.remove('active');
+      // }
 
       if (isAppend && data.hits.length > 0) {
         const firstItem = gallery.querySelector('.gallery-item');
