@@ -1,8 +1,12 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-export function refresh(gallery, images) {
-  gallery.innerHTML = images.hits
+export function refresh(gallery, images, cleanText) {
+  if (cleanText) {
+    gallery.innerHTML = '';
+  }
+
+  gallery.innerHTML += images.hits
     .map(
       ({
         webformatURL,
